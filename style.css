@@ -58,8 +58,20 @@ img { max-width: 100%; }
 }
 
 /* =========================================
-   CUSTOM CURSOR
+   CUSTOM CURSOR (canvas-based)
    ========================================= */
+#cursorCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 10000;
+  mix-blend-mode: difference;
+}
+
+/* Fallback element-based cursor (unused unless markup adds these) */
 .cursor {
   position: fixed;
   width: 12px; height: 12px;
@@ -1063,6 +1075,6 @@ body:hover .cursor { transform: translate(-50%, -50%) scale(1); }
   .project-num, .project-arrow { display: none; }
   .section { padding: 5rem 0; }
   .scroll-indicator { display: none; }
-  .cursor, .cursor-trail { display: none; }
+  #cursorCanvas, .cursor, .cursor-trail { display: none; }
   body { cursor: auto; }
 }
